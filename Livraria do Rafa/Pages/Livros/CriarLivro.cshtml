@@ -1,0 +1,42 @@
+﻿@page
+@model CriarLivroModel
+@{
+    ViewData["Title"] = "Criar Livro";
+}
+
+<form asp-action="Criar">
+    <div class="form-group">
+        <label asp-for="Livro.Titulo" class="control-label">Título</label>
+        <input asp-for="Livro.Titulo" class="form-control" />
+        <span asp-validation-for="Livro.Titulo" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Livro.ImagemUrl" class="control-label">Url da Imagem</label>
+        <input asp-for="Livro.ImagemUrl" class="form-control" />
+        <span asp-validation-for="Livro.ImagemUrl" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Livro.Autor" class="control-label">Autor</label>
+        <input asp-for="Livro.Autor" class="form-control" />
+        <span asp-validation-for="Livro.Autor" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Livro.Descricao" class="control-label">ISBN</label>
+        <input asp-for="Livro.Descricao" class="form-control" />
+        <span asp-validation-for="Livro.Descricao" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Livro.PrecoNormal" class="control-label">Preço Normal</label>
+        <input asp-for="Livro.PrecoNormal" class="form-control" type="number" step="0.01" />
+        <span asp-validation-for="Livro.PrecoNormal" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Livro.PrecoComDesconto" class="control-label">Preço com Desconto</label>
+        <input asp-for="Livro.PrecoComDesconto" class="form-control" type="number" step="0.01" />
+        <span asp-validation-for="Livro.PrecoComDesconto" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Criar" class="btn btn-primary" />
+    </div>
+</form>

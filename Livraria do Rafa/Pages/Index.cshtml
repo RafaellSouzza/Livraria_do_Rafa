@@ -1,0 +1,32 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<div class="container">
+    <div class="row">
+        @foreach (var livro in Model.Livros)
+        {
+            <div class="col-md-4 col-sm-6 mb-4">
+                <div class="card h-100">
+                    <img class="card-img-top" src="@Url.Content(livro.ImagemUrl)" alt="@livro.Titulo">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">@livro.Titulo</h5>
+                        <p class="card-text">@livro.Descricao</p>
+                        <p class="card-text"><small class="text-muted">@livro.Autor</small></p>
+                        <h6>
+                            R$ @livro.PrecoComDesconto
+                            <small class="text-muted">
+                                <s>R$ @livro.PrecoNormal</s> @livro.PrecoComDesconto off
+                            </small>
+                        </h6>
+                        <a asp-page="/Livros/Details" asp-route-id="@livro.Id" class="btn btn-primary mt-auto">Ver mais</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
